@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<div class="container" id="app">
+
+		<div class="row">
+
+			<div class="col s6 offset-s3">
+
+				<ul>
+					{% for entry in entries %}
+					<li>
+						<h2>[[ entry.title|safe ]]</h2>
+						[[ entry.content|safe ]]
+					</li>
+					{% else %}
+					<li>
+						Well, it appears that there is not a single entry in here. Do consider creating one!
+					</li>
+					{% endfor %}
+				</ul>
+
+			</div>
+
+		</div>
+
+	</div>
+{% endblock %}
+
+{% block static %}
+	<script src="[[url_for('static', filename='index.js')]]"></script>
+{% endblock %}
