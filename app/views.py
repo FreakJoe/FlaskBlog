@@ -4,13 +4,14 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index():
-	return render_template("index.html", entries=[
-			{
-				'title': 'Hello',
-				'content': 'Lorem ipsum..'
-			}
-		])
+	entries = [
+		{
+			'title': 'Hello',
+			'content': 'Lorem ipsum..'
+		}
+	]
+	return render_template('index.html', entries=entries)
 
 @app.route('/create')
 def create():
-	return render_template("create.html")
+	return render_template('create.html')
