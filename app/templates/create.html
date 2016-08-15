@@ -5,16 +5,16 @@
 
 		<div class="row">
 
-			<form action="" method="post" name="CreateArticle" id="createArticleForm" class="col">
+			<form method="post" name="CreateArticle" id="createArticleForm" class="col s6 offset-s3">
 
 				[[ form.hidden_tag() ]]
 
 				<div class="row">
-					Please enter a title for your post: [[ form.title(size=50) ]]
+					Please enter a title for your post: [[ form.title(placeholder="This is where your post's title goes...") ]]
 				</div>
 
 				<div class="row">
-					Please enter content for your post: [[ form.content(size=500) ]]
+					Please enter content for your post: [[ form.content(class_="materialize-textarea", placeholder="This is where your post's content goes...") ]]
 				</div>
 
 				<div class="row">
