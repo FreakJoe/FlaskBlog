@@ -5,7 +5,8 @@ from .forms import CreateArticleForm
 @app.route('/')
 @app.route('/index')
 def index():
-	entries = models.Article.query.all()
+	# Making sure the last entry is displayed first
+	entries = reversed(models.Article.query.all())
 	return render_template('index.html', entries=entries)
 
 @app.route('/create', methods=['GET', 'POST'])

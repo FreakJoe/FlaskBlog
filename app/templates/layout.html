@@ -14,8 +14,29 @@
 		<nav>
 			<div class="nav-wrapper">
 				<a href="#" class="brand-logo">Logo</a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<ul class="right hide-on-med-and-down">
+					<li 
+						{% if request.path == url_for('index') %} 
+						class="active" 
+						{% endif %}>
+						<a href="[[ url_for('index') ]]">
+							<i class="material-icons left">list</i>
+							Home
+						</a>
+					</li>
+					<li
+						{% if request.path == url_for('create') %} 
+						class="active" 
+						{% endif %}>
+						<a href="[[ url_for('create') ]]">
+							<i class="material-icons left">note_add</i>
+							Create article
+						</a>
+					</li>
+				</ul>
+				<ul id="mobile-demo" class="side-nav">
 					<li 
 						{% if request.path == url_for('index') %} 
 						class="active" 
@@ -45,6 +66,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
 		{% block static %}{% endblock %}
+		<script src="[[ url_for('static', filename='main.js') ]]"></script>
 		<link rel="stylesheet" href="[[url_for('static', filename='main.css')]]">		
 
 	</body>
