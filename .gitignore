@@ -1,6 +1,7 @@
 .DS_Store
 *.pyc
 *.pyo
+*.db
 env
 env*
 dist
@@ -13,3 +14,4 @@ _mailinglist
 .idea/
 venv/
 tmp/
+db_repository/
