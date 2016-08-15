@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 class CustomFlask(Flask):
     jinja_options = Flask.jinja_options.copy()
@@ -12,4 +13,7 @@ class CustomFlask(Flask):
     ))
 
 app = CustomFlask(__name__)
-from app import views
+app.config.from_object('config')
+db = SQLAlchemy(app)
+
+from app import views, models

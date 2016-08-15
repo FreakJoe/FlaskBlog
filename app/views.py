@@ -1,5 +1,6 @@
-from flask import render_template
+from flask import render_template, flash, redirect, url_for
 from app import app
+from .forms import CreateArticleForm
 
 @app.route('/')
 @app.route('/index')
@@ -12,6 +13,11 @@ def index():
 	]
 	return render_template('index.html', entries=entries)
 
-@app.route('/create')
+@app.route('/create', methods=['GET', 'POST'])
 def create():
-	return render_template('create.html')
+	form = CreateArticleForm()
+	if form.validate_on_submit():
+		print('%s %s' % (form.title.data, form.content.data))
+		return redirect(url_for('index'))
+		
+	return render_template('create.html', form=form)
