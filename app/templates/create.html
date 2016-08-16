@@ -10,11 +10,12 @@
 				[[ form.hidden_tag() ]]
 
 				<div class="row">
-					Please enter a title for your post: [[ form.title(placeholder="This is where your post's title goes...") ]]
+					[[ form.title.label ]] [[ form.title(placeholder="This is where your post's title goes...", autocomplete="off") ]]
 				</div>
 
 				<div class="row">
-					Please enter content for your post: [[ form.content(class_="materialize-textarea", placeholder="This is where your post's content goes...") ]]
+					[[ form.content.label(class_='test') ]] 
+					[[ form.content(class_="materialize-textarea", placeholder="This is where your post's content goes...", autocomplete="off") ]]
 				</div>
 
 				<div class="row">
